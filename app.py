@@ -28,7 +28,7 @@ def your_url():
         else:
             f = request.files['file']
             full_name = request.form['code'] + secure_filename(f.filename)
-            f.save('/Users/nickwalter/Desktop/url-shortener/static/user_files/' + full_name)
+            f.save('./static/user_files/' + full_name)
             urls[request.form['code']] = {'file':full_name}
 
 
