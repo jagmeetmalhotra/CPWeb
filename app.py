@@ -4,7 +4,6 @@ import os.path
 import os
 from werkzeug.utils import secure_filename
 import pandas as pd
-import fasttext
 import numpy as np
 import re
 import string
