@@ -10,3 +10,4 @@ wincertstore==0.2
 numpy
 pandas
 sklearn
+uuid

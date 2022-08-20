@@ -8,7 +8,7 @@ import numpy as np
 import re
 import string
 import pickle
-
+import uuid
 
 app= Flask(__name__)
 app.secret_key = 'h432hi5ohi3h5i5hi3o2hi'
@@ -107,6 +107,8 @@ def home():
 @app.route('/your-ticket', methods=['GET','POST'])
 def your_ticket():
     if request.method == 'POST':
+        sd_org =  request.form['sd']
+        desc_org = request.form['desc']
         sd =  request.form['sd']
         desc = request.form['desc']
         en_desc = sd + " " + desc
@@ -116,6 +118,7 @@ def your_ticket():
         result = model.predict([en_desc])
         print("Result :"+ str(result));
         flash("Your ticket has been assinged to Assignment Group : " + encoder_mapping[result[0]] )
+        session[str(uuid.uuid1()) + '|<>|' + sd_org + '|<>|'+ desc_org + '|<>|' + encoder_mapping[result[0]] ]= True
         return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))

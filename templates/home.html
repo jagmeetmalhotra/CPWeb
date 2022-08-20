@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %}URL Shortener{% endblock %}
+{% block title %}Automatic Ticket Assingment{% endblock %}
 
 {% block main %}
-
-
 
 <div class="container">
   <div class="card-deck mb-3">
@@ -27,7 +25,35 @@
   </div>
 </div>
 
+{% for message in get_flashed_messages() %}
+  <div class="container text-center">
+    <div class="p-3 mb-2 bg-success text-white">{{ message }}</div>
+  </div>
+  <br>
+{% endfor %}
+
+{% if codes %}
+<h2>Previous tickets Assingments</h2>
+<table>
+<tr>
+  <td>Ticket Id</td>
+  <td>Short Description</td>
+  <td>Description</td>
+  <td>Assingment Group</td>
+</tr>
+  {% for code in codes %}
+  <tr>
+    <td>{{code.split('|<>|')[0]}}</td>
+    <td>{{code.split('|<>|')[1]}}</td>
+    <td>{{code.split('|<>|')[2]}}</td>
+    <td>{{code.split('|<>|')[3]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
 
 {% endblock %}
+
+
 
 
