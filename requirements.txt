@@ -15,4 +15,4 @@ ftfy
 googletrans==3.1.0a0
 langdetect  
 nltk
-spacy 
+spacy

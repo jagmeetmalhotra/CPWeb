@@ -14,10 +14,6 @@ from googletrans import Translator
 from langdetect import detect
 import spacy
 import nltk
-nltk.download('wordnet')
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('averaged_perceptron_tagger')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 stop_words = set(stopwords.words('english'))
