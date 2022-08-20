@@ -179,11 +179,11 @@ def your_ticket():
         en_desc  = remove_stopwords(en_desc)
         #lemmatise text
         en_desc  = lemmatize_text(en_desc)
-        print(en_desc)
+        #predict
         result = model.predict([en_desc])
         print("Result :"+ str(result));
         flash("Your ticket has been assinged to Assignment Group : " + encoder_mapping[result[0]] )
-        session[str(uuid.uuid1()) + '|<>|' + sd_org + '|<>|'+ desc_org + '|<>|' + encoder_mapping[result[0]] ]= True
+        session[str(uuid.uuid1()) + '|<>|' + sd_org + '|<>|'+ desc_org + '|<>|' + en_desc + '|<>|' + encoder_mapping[result[0]] ]= True
         return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))

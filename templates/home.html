@@ -39,6 +39,7 @@
   <td>Ticket Id</td>
   <td>Short Description</td>
   <td>Description</td>
+  <td>Classification Text</td>
   <td>Assingment Group</td>
 </tr>
   {% for code in codes %}
@@ -47,6 +48,7 @@
     <td>{{code.split('|<>|')[1]}}</td>
     <td>{{code.split('|<>|')[2]}}</td>
     <td>{{code.split('|<>|')[3]}}</td>
+    <td>{{code.split('|<>|')[4]}}</td>
   </tr>
   {% endfor %}
 </table>
