@@ -5,6 +5,7 @@
 {% block main %}
 
 
+
 <div class="container">
   <div class="card-deck mb-3">
     <div class="card mb-4 shadow-sm">
@@ -12,9 +13,9 @@
         <h4 class="my-0 font-weight-normal text-center">Issue Details</h4>
       </div>
       <div class="card-body">
-        <form action="your-url" method="post">
-          <label for="code">Title</label>
-          <input type="text" class="form-control" name="code" id="code" value="" required>
+        <form action="your-ticket" method="post">
+          <label for="sd">Title</label>
+          <input type="text" class="form-control" name="sd" id="sd" value="" required>
           <br>
           <p><label for="desc">Description</label></p>
           <textarea id="desc" name="desc" rows="8" cols="70" value="" required></textarea>
@@ -24,17 +25,9 @@
       </div>
     </div>
   </div>
-
-  {% if codes %}
-  <h2>Codes you have created:</h2>
-  <ul>
-    {% for code in codes %}
-    <a href="{{ url_for('redirect_to_url', code=code) }}">
-      <li>{{ code }}</li>
-    </a>
-    {% endfor %}
-  </ul>
-  {% endif %}
 </div>
 
+
 {% endblock %}
+
+
