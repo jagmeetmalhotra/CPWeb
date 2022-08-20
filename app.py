@@ -12,15 +12,12 @@ import uuid
 from ftfy import fix_encoding, fix_text, badness
 from googletrans import Translator
 from langdetect import detect
-import spacy
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 stop_words = set(stopwords.words('english'))
-
-
-nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
-allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']
+from nltk.stem import WordNetLemmatizer 
+lemmatizer = WordNetLemmatizer()
 
 
 
@@ -36,8 +33,10 @@ model = pickle.load(open('logreg_model_deploy.sav','rb'))
 encoder_mapping = {0: 'GRP_0', 1: 'GRP_12', 2: 'GRP_13', 3: 'GRP_14', 4: 'GRP_19', 5: 'GRP_2', 6: 'GRP_24', 7: 'GRP_25', 8: 'GRP_29', 9: 'GRP_3', 10: 'GRP_33', 11: 'GRP_4', 12: 'GRP_8', 13: 'GRP_MANUAL'}
 
 def lemmatize_text(text):
-    doc = nlp(text)
-    return ' '.join([token.lemma_ for token in doc])
+    word_list = nltk.word_tokenize(text)
+    # Lemmatize list of words and join
+    lemmatized_output = ' '.join([lemmatizer.lemmatize(w) for w in word_list])
+    return lemmatized_output
 
 def detect_my(text):
     try:
