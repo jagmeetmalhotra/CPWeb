@@ -9,3 +9,4 @@ Werkzeug==2.0.2
 wincertstore==0.2
 numpy
 pandas
+sklearn
