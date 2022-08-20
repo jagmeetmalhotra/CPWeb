@@ -9,7 +9,7 @@ import numpy as np
 import re
 import string
 import pickle
-fasttext.FastText.eprint = lambda x: None
+
 
 app= Flask(__name__)
 app.secret_key = 'h432hi5ohi3h5i5hi3o2hi'
