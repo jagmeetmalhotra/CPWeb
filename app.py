@@ -181,9 +181,10 @@ def your_ticket():
         en_desc  = lemmatize_text(en_desc)
         #predict
         result = model.predict([en_desc])
-        print("Result :"+ str(result));
+        result_prob=model.predict_proba([en_desc])
+        print("Result Propability:"+ str(result_prob.max()));
         flash("Your ticket has been assinged to Assignment Group : " + encoder_mapping[result[0]] )
-        session[str(uuid.uuid1()) + '|<>|' + sd_org + '|<>|'+ desc_org + '|<>|' + en_desc + '|<>|' + encoder_mapping[result[0]] ]= True
+        session[str(uuid.uuid1()) + '|<>|' + sd_org + '|<>|'+ desc_org + '|<>|' + en_desc + '|<>|' + str(result_prob.max())[:4] + '|<>|' + encoder_mapping[result[0]] ]= True
         return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))

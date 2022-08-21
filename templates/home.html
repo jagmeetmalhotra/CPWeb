@@ -40,6 +40,7 @@
   <td>Short Description</td>
   <td>Description</td>
   <td>Classification Text</td>
+  <td>Assingment Proability</td>
   <td>Assingment Group</td>
 </tr>
   {% for code in codes %}
@@ -49,6 +50,7 @@
     <td>{{code.split('|<>|')[2]}}</td>
     <td>{{code.split('|<>|')[3]}}</td>
     <td>{{code.split('|<>|')[4]}}</td>
+    <td>{{code.split('|<>|')[5]}}</td>
   </tr>
   {% endfor %}
 </table>
