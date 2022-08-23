@@ -182,8 +182,8 @@ def your_ticket():
         #predict
         result = model.predict([en_desc])
         result_prob=model.predict_proba([en_desc])
+        result_org = result
         if result_prob.max() < 0.75:
-            result_org = result
             result = [13]
         flash("Your ticket has been assinged to Assignment Group : " + encoder_mapping[result[0]] )
         session[str(uuid.uuid1()) + '|<>|' + sd_org + '|<>|'+ desc_org + '|<>|' + en_desc + '|<>|' + str(result_prob.max())[:4] +'-'+encoder_mapping[result_org[0]]+ '|<>|' + encoder_mapping[result[0]] ]= True
