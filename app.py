@@ -13,6 +13,10 @@ from ftfy import fix_encoding, fix_text, badness
 from googletrans import Translator
 from langdetect import detect
 import nltk
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.svm import SVC
+
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 stop_words = set(stopwords.words('english'))
@@ -28,7 +32,8 @@ translator = Translator()
 
 app= Flask(__name__)
 app.secret_key = 'h432hi5ohi3h5i5hi3o2hi'
-model = pickle.load(open('logreg_model_deploy.sav','rb'))
+model = pickle.load(open('LogisticR.sav','rb'))
+
 
 encoder_mapping = {0: 'GRP_0', 1: 'GRP_12', 2: 'GRP_13', 3: 'GRP_14', 4: 'GRP_19', 5: 'GRP_2', 6: 'GRP_24', 7: 'GRP_25', 8: 'GRP_29', 9: 'GRP_3', 10: 'GRP_33', 11: 'GRP_4', 12: 'GRP_8', 13: 'GRP_MANUAL'}
 
