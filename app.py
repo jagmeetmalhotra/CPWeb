@@ -157,6 +157,15 @@ def clean_data_domainContext(text  ):
     text = text.strip()
     return text
 
+def combineText(ShortDesc , Desc):
+    finaltext = ""
+    if ShortDesc == Desc:
+        finaltext = Desc
+    else:
+        finaltext = ShortDesc + " " + Desc
+    
+    return  finaltext
+
 @app.route('/')
 def home():
     return render_template('home.html', codes=session.keys())
@@ -169,7 +178,7 @@ def your_ticket():
         sd =  request.form['sd']
         desc = request.form['desc']
         #Combine Description and short description
-        com_desc = sd + " " + desc
+        com_desc = combineText(sd , desc)
         #Remove ftfy character
         com_desc=fix_text(com_desc)
         com_desc = re.sub(r'\n',' ',com_desc)
