@@ -33,6 +33,7 @@ translator = Translator()
 app= Flask(__name__)
 app.secret_key = 'h432hi5ohi3h5i5hi3o2hi'
 model = pickle.load(open('LogisticR.sav','rb'))
+#model = pickle.load(open('RFC.sav','rb'))
 
 
 encoder_mapping = {0: 'GRP_0', 1: 'GRP_12', 2: 'GRP_13', 3: 'GRP_14', 4: 'GRP_19', 5: 'GRP_2', 6: 'GRP_24', 7: 'GRP_25', 8: 'GRP_29', 9: 'GRP_3', 10: 'GRP_33', 11: 'GRP_4', 12: 'GRP_8', 13: 'GRP_MANUAL'}
