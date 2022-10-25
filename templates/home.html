@@ -35,14 +35,14 @@
 {% if codes %}
 <h2>Previous tickets Assignments</h2>
 <table>
-<tr>
+<th>
   <td>Ticket Id</td>
   <td>Short Description</td>
   <td>Description</td>
   <td>Classification Text</td>
   <td>Orginal Assingment Proability</td>
   <td>Final Assingment Group</td>
-</tr>
+</th>
   {% for code in codes %}
   <tr>
     <td>{{code.split('|<>|')[0]}}</td>
