@@ -82,7 +82,8 @@ def clean_text_before_lang_detect(text  ):
     # Remove new line characters 
     text = re.sub(r'\n',' ',text)
     #Remove leading & trailing Spaces
-    text = re.sub(r"^\s+|\s+$", "", text)
+    text = re.sub(r"^\s+", "", text)
+    text = re.sub(r"\s+$", "", text)
     # Remove numbers and special chaacters
     text = re.sub(r'\d+',' ' ,text)
     text = re.sub(r'\/\/',' ', text)
